@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class book extends Model
+class Position extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-    public function author()
+
+    public function user()
     {
-        return $this->belongsTo(author::class);
+       return $this->belongsTo(User::class);
     }
 }

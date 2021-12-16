@@ -4,14 +4,9 @@
 
 cd to the directory
 
-1.composer install
-2.npm install && npm run dev (for tailwind.css)
-3.php artisan migrate:fresh --seed
-4.php artisan serve
+1.composer install<br>
+2.npm install && npm run dev (for tailwind.css)<br>
+3.php artisan migrate:fresh --seed<br>
+4.php artisan serve<br>
 
 
-
-
-## Sqlite
-
-provided with sqlite so you dont need to run your local server

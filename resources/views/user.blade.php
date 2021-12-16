@@ -62,9 +62,9 @@
                     
                 </div>
                 <div>
-                    <button  onclick="openModal()"  class="bg-blue-300 text-black font-bold py-2 px-4 border-b-4 border-blue-dark rounded-full">
+                    {{-- <button  onclick="openModal()"  class="bg-blue-300 text-black font-bold py-2 px-4 border-b-4 border-blue-dark rounded-full">
                         Create +
-                    </button>
+                    </button> --}}
                 </div>
              
             </div>
@@ -87,41 +87,13 @@
                             </div>
                         </div>
                         <!--Body-->
-                        <div class="my-5">
-                            <form action="{{route('user.store')}}" method="POST" id="add_caretaker_form"  class="w-full">
-                                @csrf
-                                <div class="">
-                                    <div class="">
-                                        <label for="title" class="text-md text-gray-600">Name</label>
-                                        <input type="text" id="title" autocomplete="off" name="name" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Book's Title" required>
-                                    </div>
-                                    <div class="">
-                                        <label for="email" class="text-md text-gray-600">Email</label>
-                                        <input type="text" id="email" autocomplete="off" name="email" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Book's Title" required>
-                                    </div>
-                                    <div class="">
-                                        <label for="password" class="text-md text-gray-600">Password</label>
-                                        <input type="password" id="password" autocomplete="off" name="password" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Book's Title" required>
-                                    </div>
-                                   
-                                   
-                                   
-                                </div>
-                                <!--Footer-->
-                                <div class="flex justify-end pt-2">
-                                    <button
-                                        class="focus:outline-none modal-close px-4 bg-gray-400 p-3 rounded-md text-black hover:bg-gray-300">Cancel</button>
-                                    <button type="submit"
-                                        class="focus:outline-none px-4 bg-green-400 p-3 ml-3 rounded-md text-black hover:bg-teal-400">Confirm</button>
-                                </div>
-                            </form>
-                        </div>
+                
                     </div>
                 </div>
             </div>
           
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="w-full overflow-x-auto">
+                <div class="overflow-x-auto overflow-y-auto">
                     <table class="w-full">
                       <thead>
                         <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
@@ -129,7 +101,8 @@
                           <th class="px-4 py-3">Name</th>
                           <th class="px-4 py-3">Password</th>
                           <th class="px-4 py-3">Role</th>
-                          <th class="px-4 py-3">Created</th>
+                          <th class="px-4 py-3">Position</th>
+                          <th class="px-4 py-3">Base Salary</th>
                         </tr>
                       </thead>
                       <tbody class="bg-white">
@@ -144,14 +117,12 @@
                               <div>
                                 <p class="font-semibold capitalize tracking-widest">{{$user->name}}</p>
                               </div>
-                              
                             </div>
                           </td>
-                          <td class="px-4 py-3 border text-md font-semibold">{{$user->password}}</td>
+                          <td class="px-4 py-3 border text-md font-semibold">{{substr($user->password,0,10)}}..</td>
                           <td class="px-4 py-3 border text-md font-semibold">{{$user->role->name}}</td>
-
-                          <td class="px-4 py-3 border text-md font-semibold">{{$user->created_at->format('d/m/y')}}</td>
-                     
+                          <td class="px-4 py-3 border text-md font-semibold">{{$user->position->name ?? '-'}}</td>
+                          <td class="px-4 py-3 border text-md font-semibold">{{$user->salary->gaji ?? '-'}}</td>
                         </tr>
                           @endforeach
                     
